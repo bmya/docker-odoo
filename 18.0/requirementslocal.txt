@@ -5,5 +5,5 @@ numpy
 pdfminer.six==20211012
 phonenumbers
 odoo_upgrade @ git+https://github.com/odoo/upgrade-util@master
-gevent==22.10.2
-greenlet==2.0.2
+gevent
+greenlet

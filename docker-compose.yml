@@ -1,12 +1,12 @@
 services:
     odoo:
         container_name: odoo18e
-        image: bmya/odoo-bmya:l18
+        image: bmya/odoo-bmya:m18
         build:
             context:  ./docker/18.0
             dockerfile: Dockerfile
-            args:
-                ARCH: x86_64 # alternative: arm64
+            #args:
+            #    ARCH: x86_64 # alternative: arm64
         command: -- -c /etc/odoo/odoo.conf
         stdin_open: true
         tty: true
