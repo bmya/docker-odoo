@@ -1,0 +1,19 @@
+# Development and debugging tools
+ipython
+
+# Chilean localization - Essential for barcode generation
+pdf417gen==0.7.1
+
+# Odoo upgrade utilities
+odoo_upgrade @ git+https://github.com/odoo/upgrade-util@master
+
+# Additional dependencies not in base requirements.txt
+# These would be python3-* packages in Ubuntu/Debian official Odoo image
+pdfminer.six
+phonenumbers
+
+# Additional utilities
+google_auth
+numpy
+inotify
+debugpy
