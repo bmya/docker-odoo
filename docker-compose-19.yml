@@ -1,0 +1,39 @@
+services:
+    odoo:
+        container_name: odoo19e
+        image: bmya/odoo-bmya:m19
+        build:
+            context:  ./19.0
+            dockerfile: Dockerfile
+            #args:
+            #    ARCH: x86_64 # alternative: arm64
+        command: -- -c /etc/odoo/odoo.conf
+        stdin_open: true
+        tty: true
+        restart: always
+        networks:
+            - default
+            - pg12_default
+        external_links:
+            - db12:db
+        ports:
+            - "8169:8069"
+        volumes:
+            - ../data_odoo:/var/lib/odoo:delegated
+            - ../odoo:/mnt/odoo:delegated
+            - ../enterprise:/mnt/enterprise:delegated
+            - ../design-themes:/mnt/design-themes:delegated
+            - ../extra-addons:/mnt/extra-addons:delegated
+            #- ./conf:/etc/odoo
+        environment:
+            - DB_PORT_5432_TCP_ADDR=db
+            - DB_PORT_5432_TCP_PORT=5432
+            - DB_ENV_POSTGRES_USER=odoo
+            - DB_ENV_POSTGRES_PASSWORD=odoo
+            - POSTGRES_DB=postgres
+
+networks:
+     default:
+         driver: bridge
+     pg12_default:
+         external: true
