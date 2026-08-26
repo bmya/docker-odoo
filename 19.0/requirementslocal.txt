@@ -4,6 +4,11 @@ ipython
 # Chilean localization - Essential for barcode generation
 pdf417gen==0.7.1
 
+# renderPM backend for reportlab (required by QWeb barcode widget, e.g. stock.report_picking)
+# Without these, reportlab raises: RenderPMError: cannot import desired renderPM backend rlPyCairo
+pycairo
+rlPyCairo
+
 # Odoo upgrade utilities
 odoo_upgrade @ git+https://github.com/odoo/upgrade-util@master
 
