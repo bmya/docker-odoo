@@ -22,3 +22,12 @@ google_auth
 numpy
 inotify
 debugpy
+
+# Dependencias públicas de pybmyafintoc (repo privado bmya/pybmyafintoc). La
+# librería no va en esta imagen, que es pública: se instala al arrancar desde el
+# wheel en bmya-enterprise/vendor/ (paso en el compose de bmya-infrastructure).
+# Acá van solo sus dependencias, para que ese paso no necesite PyPI. El rango de
+# fintoc es el mismo que exige el wheel. Compatible con los pines de Odoo 19
+# (cryptography==42.0.8 < 44, que pide fintoc; Odoo no fija httpx).
+fintoc>=1.0.0,<2.10.0
+httpx
